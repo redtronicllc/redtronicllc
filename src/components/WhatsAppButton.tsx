@@ -26,7 +26,7 @@ const WhatsAppButton = (): JSX.Element => {
       "
     >
        <img
-        src="../src/assets/whatsapp-icon.png"   /* put image in public folder */
+        src="/whatsapp-icon.png"   /* put image in public folder */
         alt="WhatsApp"
        style={{ width: "60px", height: "60px" }}
       />
