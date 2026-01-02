@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design System for Redtronic - Emergency Vehicle Lighting */
+
+@layer base {
+  :root {
+    /* Primary Red - C:0 M:100 Y:62 K:0 converted to HSL */
+    --primary: 344 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 344 100% 55%;
+    
+    /* Near Black - C:70 M:69 Y:63 K:74 */
+    --background: 220 10% 8%;
+    --foreground: 0 0% 95%;
+    
+    --card: 220 10% 10%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 220 10% 10%;
+    --popover-foreground: 0 0% 95%;
+    
+    --secondary: 220 10% 15%;
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 220 10% 18%;
+    --muted-foreground: 220 10% 60%;
+    
+    --accent: 344 100% 45%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+    --ring: 344 100% 45%;
+    
+    --radius: 0.5rem;
+    
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(346, 85%, 52%), hsl(346, 85%, 52%));
+    --gradient-dark: linear-gradient(180deg, hsl(140, 100%, 1%), hsl(140, 100%, 1%));
+    --gradient-card: linear-gradient(180deg, hsl(220, 10%, 12%), hsl(220, 10%, 8%));
+    --gradient-hero-overlay: linear-gradient(90deg, hsla(210, 20%, 94%, 0.9) 0%, hsla(0, 0%, 100%, 0.949) 50%, transparent 100%);
+    
+    /* Shadows */
+    --shadow-red-glow: 0 0 40px hsla(346, 85%, 52%);
+    --shadow-card: 0 10px 40px -10px hsla(0, 0%, 0%, 0.5);
+    --shadow-elevated: 0 20px 60px -15px hsla(0, 0%, 0%, 0.6);
+    
+    /* Sidebar */
+    --sidebar-background: 220 10% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 344 100% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 10% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 220 10% 20%;
+    --sidebar-ring: 344 100% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-content antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-heading;
+  }
+  
+  h5, h6 {
+    @apply font-subheading;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-full font-subheading text-sm tracking-wider uppercase transition-all duration-300;
+    box-shadow: 0 0 30px hsl(346, 85%, 52%);
+  }
+  
+  .btn-hero:hover {
+    @apply scale-105;
+    box-shadow: 0 0 50px hsl(346, 85%, 52%);
+  }
+  
+  .btn-outline-hero {
+    @apply border-2 border-foreground/30 text-foreground px-8 py-4 rounded-full font-subheading text-sm tracking-wider uppercase transition-all duration-300 bg-transparent hover:bg-foreground/10;
+  }
+  
+  /* Section Styling */
+  .section-dark {
+    @apply bg-background;
+  }
+  
+  .section-darker {
+    @apply bg-card;
+  }
+  
+  /* Text Styling */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70;
+  }
+  
+  /* Card Styling */
+  .glass-card {
+    @apply bg-secondary/50 backdrop-blur-sm border border-border/50 rounded-2xl;
+  }
+  
+  /* Animation Classes */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .animate-fade-left {
+    animation: fadeLeft 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .animate-fade-right {
+    animation: fadeRight 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  /* Delay utilities */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+  .delay-600 { animation-delay: 0.6s; }
+  .delay-700 { animation-delay: 0.7s; }
+  .delay-800 { animation-delay: 0.8s; }
+  
+  /* Link underline animation */
+  .link-underline {
+    @apply relative;
+  }
+  
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 origin-right transition-transform duration-300;
+  }
+  
+  .link-underline:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+  
+  /* Counter animation */
+  .counter-box {
+    @apply text-6xl font-bold text-primary;
+    text-shadow: 0 0 40px hsla(344, 100%, 45%, 0.5);
+  }
+  
+  /* Feature Card */
+  .feature-card {
+    @apply p-8 bg-gradient-to-b from-secondary/50 to-transparent rounded-2xl border border-border/30 transition-all duration-500;
+  }
+  
+  .feature-card:hover {
+    @apply border-primary/50;
+    box-shadow: 0 20px 40px -20px hsla(344, 100%, 45%, 0.3);
+    transform: translateY(-5px);
+  }
+  
+  /* Number indicator */
+  .step-number {
+    @apply text-7xl font-bold text-primary/20;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 30px hsla(344, 100%, 45%, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 60px hsla(344, 100%, 45%, 0.6);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(220, 10%, 8%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(hsl(140, 100, 1%));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(346, 85%, 52%);
+}
