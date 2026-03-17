@@ -18,7 +18,7 @@ const Footer = () => {
           <div>
             <img src={logo} alt="Redtronic" className="h-10 mb-6" />
             <p className="text-black/70 text-sm leading-relaxed mb-6">
-              Redtronic LLC, a Middle East based company headquartered in Dubai,
+              Redtronic, a Middle East based company headquartered in Dubai,
               UAE a subsidiary of Weinber Inc. NY, USA which is involved in
               manufacturing of Lubricants, Car Care, Detailing and Surface
               Protective Coating products.

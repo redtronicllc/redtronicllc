@@ -11,7 +11,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+971 4 33 99 55 0", " +971 55 930 5208"],
+    details: ["+971 50 646 9568","+91 8089307377"],
   },
   {
     icon: Mail,
@@ -22,16 +22,6 @@ const contactInfo = [
     icon: Clock,
     title: "Business Hours",
     details: ["Mon - Sat: 8:30 AM - 5:30 PM", "Sunday: Closed"],
-  },
-  {
-    icon: MapPin,
-    title: "UAE",
-    details: [" Redtronic LLC " , "Ras Al Khor, Industrial Area - 1 ", "P.O. Box 118215, Dubai, UAE."],  
-  },
-   {
-    icon: MapPin,
-    title: "INDIA",
-    details: ["Redtronic LLP", "Kerala, India"], 
   },
  
 ];
@@ -292,7 +282,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section */}
+      {/* Map Section}
       <section className="py-16">
         <div className="container mx-auto px-6">
           <ScrollAnimation animation="fade-up">
@@ -310,7 +300,7 @@ const Contact = () => {
             </div>
           </ScrollAnimation>
         </div>
-      </section>
+      </section>*/}
 
       <Footer />
     </div>
